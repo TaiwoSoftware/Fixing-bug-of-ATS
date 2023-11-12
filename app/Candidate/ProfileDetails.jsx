@@ -1,8 +1,21 @@
+import { useEffect } from "react";
+
 const ProfileDetails = () => {
+    // const initialState = {
+    //     access: typeof window !== "undefined" ? window.localStorage.getItem('access') : false,
+    //     refresh: typeof window !== "undefined" ?  window.localStorage.getItem('refresh') : false,
+    //     isAuthenticated: null,
+    //     user: null
+    // };
 
-
+    const initialState = () => {
+        if(localStorage === undefined) {
+            console.log('undefine');
+        }
+    }
     return (
-        <div className="form-container">
+        useEffect(() => {
+            <div className="form-container">
             <form className="form">
                 <label htmlFor="user-company-name">Company Name:</label>
                 <input type="text" value={localStorage.getItem('Cname')}  id="user-company-name" />
@@ -22,6 +35,7 @@ const ProfileDetails = () => {
                 <input type="submit" value="Done" className="text-white bg-green-800" />
             </form>
         </div>
+        }, [initialState])
     );
 }
 
